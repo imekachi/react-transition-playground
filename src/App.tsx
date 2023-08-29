@@ -1,5 +1,5 @@
-import { Button } from '@/lib/components/Button'
-import { Input } from '@/lib/components/Input'
+import { useState } from 'react'
+import { ItemCreationForm } from '@/modules/ItemCreationForm/ItemCreationForm'
 import { ListWithSearch } from '@/modules/ListWithSearch'
 
 const INITIAL_LIST: string[] = Array.from({ length: 5 }).map(
@@ -7,18 +7,21 @@ const INITIAL_LIST: string[] = Array.from({ length: 5 }).map(
 )
 
 function App() {
+  const [items, setItems] = useState<string[]>(INITIAL_LIST)
+
+  const handleCreateItem = (value: string) => {
+    setItems((items) => [...items, value])
+  }
+
   return (
     <div className="mx-auto max-w-screen-lg p-10">
       <div className="mx-auto max-w-screen-sm">
-        <form className="flex gap-2">
-          <Input type="text" placeholder="Add something to the list..." />
-          <Button type="submit">Add</Button>
-        </form>
+        <ItemCreationForm onSubmit={handleCreateItem} />
       </div>
 
       <div className="mt-6 md:grid md:grid-cols-2 md:gap-4">
-        <ListWithSearch title="With Debounce" items={INITIAL_LIST} />
-        <ListWithSearch title="With transition" items={INITIAL_LIST} />
+        <ListWithSearch title="With Debounce" items={items} />
+        <ListWithSearch title="With transition" items={items} />
       </div>
     </div>
   )
