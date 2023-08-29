@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { ItemCreationForm } from '@/modules/ItemCreationForm/ItemCreationForm'
+import { ItemCreationForm } from '@/modules/ItemCreationForm'
 import { ListWithSearch } from '@/modules/ListWithSearch'
 
+// A mock up initial list of items
 const INITIAL_LIST: string[] = Array.from({ length: 5 }).map(
   (_, i) => `Item ${i + 1}`,
 )
