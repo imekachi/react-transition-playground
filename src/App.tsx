@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ItemCreationForm } from '@/modules/ItemCreationForm'
 import { ListWithDebounceSearch } from '@/modules/ListWithDebounceSearch'
-import { ListWithSearch } from '@/modules/ListWithSearch'
+import { ListWithTransitionSearch } from '@/modules/ListWithTransitionSearch'
 
 // A mock up initial list of items
 const INITIAL_LIST: string[] = [
@@ -30,7 +30,7 @@ function App() {
 
       <div className="mt-6 md:grid md:grid-cols-2 md:gap-4">
         <ListWithDebounceSearch title="With Debounce" items={items} />
-        <ListWithSearch title="With transition" items={items} />
+        <ListWithTransitionSearch title="With transition" items={items} />
       </div>
     </div>
   )
