@@ -1,11 +1,19 @@
 import { useState } from 'react'
 import { ItemCreationForm } from '@/modules/ItemCreationForm'
+import { ListWithDebounceSearch } from '@/modules/ListWithDebounceSearch'
 import { ListWithSearch } from '@/modules/ListWithSearch'
 
 // A mock up initial list of items
-const INITIAL_LIST: string[] = Array.from({ length: 5 }).map(
-  (_, i) => `Item ${i + 1}`,
-)
+const INITIAL_LIST: string[] = [
+  'Apple',
+  'Blueberry',
+  'Banana',
+  'Cherry',
+  'Coconut',
+  'Durian',
+  'Grape',
+  'Lemon',
+]
 
 function App() {
   const [items, setItems] = useState<string[]>(INITIAL_LIST)
@@ -21,7 +29,7 @@ function App() {
       </div>
 
       <div className="mt-6 md:grid md:grid-cols-2 md:gap-4">
-        <ListWithSearch title="With Debounce" items={items} />
+        <ListWithDebounceSearch title="With Debounce" items={items} />
         <ListWithSearch title="With transition" items={items} />
       </div>
     </div>

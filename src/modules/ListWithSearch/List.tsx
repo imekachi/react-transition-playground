@@ -7,7 +7,7 @@ export function List(props: ListProps) {
 
   return (
     <ul className="space-y-2">
-      {items ? (
+      {items?.length ? (
         items.map((item, i) => {
           return (
             <li key={i} className="p-2 rounded hover:bg-slate-100">
